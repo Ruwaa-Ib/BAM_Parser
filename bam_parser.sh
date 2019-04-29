@@ -10,13 +10,16 @@ samtools flagstat $bam_file > $output.flagstat
 # 1- Extracting the required reads
 mkdir parsed
 # a) multiple mismatches 
-	# m4 3arfa
+samtools view -h -F 4 $bam_file | SamFixCigar #m4 3arfa ezay lsa
+
 
 # b) supplementary alignment
 samtools view -h -f 2048 $bam_file > parsed/supp.$output
 
+
 # c) discordant reads
 samtools view -h -F 2 $bam_file > parsed/improper.$output
+
 
 # d) reads with introns
 samtools view -h -F 4 $bam_file | awk '$6 !~ /N/ || $1 ~ /@/' | samtools view -b > parsed/without_introns_$output
