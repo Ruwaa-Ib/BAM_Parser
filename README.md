@@ -54,8 +54,7 @@ mkdir parsed
 
 #### a) Purpose 1: getting the records with intronic sequences (CIGAR)
 ```
-samtools view -h -F 4 $bam_file | awk '$6 !~ /N/ || $1 ~ /@/' | samtools view -b > parsed/without_introns.$output
-samtools view -h -F 4 $bam_file | awk '$6 ~ /N/ || $1 ~ /@/' | samtools view -b > parsed/with_introns.$output
+
 ```
 
 #### b) Purpose 2: getting the records that made improper alignment (F)
@@ -72,3 +71,4 @@ samtools view -h -f 2048 $bam_file > parsed/supp.$output
 ```
 
 ```
+
