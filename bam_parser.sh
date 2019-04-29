@@ -19,8 +19,6 @@ samtools view -h -f 2048 $bam_file > parsed/supp.$output
 samtools view -h -F 2 $bam_file > parsed/improper.$output
 
 # d) reads with introns
-samtools view -h 			> parsed/without_introns.$output
-samtools view -h 			> parsed/with_introns.$output
+samtools view -h -F 4 $bam_file | awk '$6 !~ /N/ || $1 ~ /@/' | samtools view -b > parsed/without_introns_$output
+samtools view -h -F 4 $bam_file | awk '$6 ~ /N/ || $1 ~ /@/' | samtools view -b > parsed/with_introns_$output
 
-#------------------------------------------------------------
-# find the position of those reads
