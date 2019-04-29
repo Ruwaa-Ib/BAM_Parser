@@ -10,7 +10,10 @@ samtools flagstat $bam_file > $output.flagstat
 # 1- Extracting the required reads
 mkdir parsed
 # a) multiple mismatches 
-samtools view -h -F 4 $bam_file | SamFixCigar #m4 3arfa ezay lsa
+samtools view -h -F 4 $bam_file | #...
+# there are twi options here:
+	# 1- SamFixCigar 
+	# 2- there is a tag named MD that can be used for that purpose!
 
 
 # b) supplementary alignment

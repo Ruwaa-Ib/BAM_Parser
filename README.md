@@ -71,6 +71,11 @@ samtools view -h -f 2048 $bam_file > parsed/supp.$output
 
 #### d) Purpose 4: getting the records with multiple mismatch (CIGAR)
 ```
-
+samtools view -h -F 4 $bam_file | #...
 ```
+there are twi options here:
+ 1. SamFixCigar (tool >> http://lindenb.github.io/jvarkit/)
+ 2. there is a tag named MD that can be used for that purpose!
+ 
+ I support the second option. See this tutorial >> http://zenfractal.com/2013/06/19/playing-with-matches/
 
