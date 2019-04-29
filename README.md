@@ -5,6 +5,7 @@ This tools is part of the Bioinformatics course project (ZC-BMS320)
 The Pipeline goes as follow:
 
 ### 1. Downloading and Indexing the Reference Human Genome
+You should first create a new directory for this pipeline. Preferably, name it BAM_Parser.
 ```
 work_dir="$(pwd)"
 
