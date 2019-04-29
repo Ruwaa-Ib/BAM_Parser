@@ -27,12 +27,12 @@ cd $work_dir
 ```
 
 ### 2. Downloading the sample of Interest from NCBI-SRA
-```
+```bash
 fastq-dump -I --split-files $sample
 ```
 
 ### 3. Mapping the sample to the indexed reference human genome
-```
+```bash
 hisat2 -q --phred33 \
 	-x $index \
 	-1 $sample_1.fastq \
@@ -43,34 +43,34 @@ hisat2 -q --phred33 \
 ```
 
 ### 4. Converting SAM to BAM
-```
+```bash
 samtools view -hbo $sample.bam $sample.sam 
 ```
 
 ### 5. Extracting Records from the BAM file for Different Purposes
 Insert some description here!
-```
+```bash
 mkdir parsed
 ```
 
 #### a) Purpose 1: getting the records with intronic sequences (CIGAR)
-```
+```bash
 samtools view -h -F 4 $bam_file | awk '$6 !~ /N/ || $1 ~ /@/' | samtools view -b > parsed/without_introns_$output
 samtools view -h -F 4 $bam_file | awk '$6 ~ /N/ || $1 ~ /@/' | samtools view -b > parsed/with_introns_$output
 ```
 
 #### b) Purpose 2: getting the records that made improper alignment (F)
-```
+```bash
 samtools view -h -F 2 $bam_file > parsed/improper.$output
 ```
 
 #### c) Purpose 3: getting the records with supplementary alignment (F)
-```
+```bash
 samtools view -h -f 2048 $bam_file > parsed/supp.$output
 ```
 
 #### d) Purpose 4: getting the records with multiple mismatch (CIGAR)
-```
+```bash
 samtools view -h -F 4 $bam_file | #...
 ```
 there are twi options here:
