@@ -73,7 +73,7 @@ samtools view -h -f 2048 $bam_file > parsed/supp.$output
 ```bash
 samtools view -h -F 4 $bam_file | #...
 ```
-there are twi options here:
+there are two options here:
  1. SamFixCigar (tool >> http://lindenb.github.io/jvarkit/)
  2. there is a tag named MD that can be used for that purpose!
  
