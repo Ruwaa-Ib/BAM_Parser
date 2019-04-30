@@ -1,9 +1,10 @@
 #!/bin/bash
 
-work_dir="$(pwd)"
-bam_file="$1"
+work_dir="$1"
+bam_file="$2"
 output="$(basename -- $bam_file)"
 
+cd $work_dir
 samtools flagstat $bam_file > $output.flagstat
 
 #------------------------------------------------------------

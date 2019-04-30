@@ -28,4 +28,4 @@ samtools view -hbo $sample.bam $sample.sam
 
 #------------------------------------------------------------
 # 5- BAM parser calling
-bash bam_parser.sh "$sample.bam"
+bash bam_parser.sh "$work_dir" "$sample.bam"
