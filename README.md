@@ -79,6 +79,7 @@ samtools view parsed/sorted_$bam_file | wc -l
 samtools view parsed/Split_N.bam | wc -l
 
 ```
+When viewd, some records still contan introns 'N' in the CIGAR string! A new python/bash script is needed for the splitting.
 
 #### b) Purpose 2: getting the records that made improper alignment (F)
 ```bash
