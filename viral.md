@@ -24,7 +24,7 @@ cd $work_dir
 
 ### 2. Downloading the sample of interest
 ```bash
-sample="SRR8910240"
+sample="SRR8185960"
 fastq-dump -I --split-files $sample
 ```
 
