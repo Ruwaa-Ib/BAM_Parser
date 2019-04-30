@@ -63,6 +63,21 @@ output="$(basename -- $bam_file)"
 ```bash
 samtools view -h -F 4 $bam_file | awk '$6 !~ /N/ || $1 ~ /@/' | samtools view -b > parsed/without_introns_$output
 samtools view -h -F 4 $bam_file | awk '$6 ~ /N/ || $1 ~ /@/' | samtools view -b > parsed/with_introns_$output
+
+# split the recrods in the introns file to exons (without introns)
+bam_file="with_introns_SRR2973277.bam"
+
+samtools view -H parsed/$bam_file > parsed/header.bam
+samtools sort -o parsed/sorted_$bam_file parsed/$bam_file
+
+# conda activate ngs
+gatk SplitNCigarReads -R $fna_file -I parsed/sorted_$bam_file -O parsed/Split_N.bam
+
+
+# counting lines
+samtools view parsed/sorted_$bam_file | wc -l
+samtools view parsed/Split_N.bam | wc -l
+
 ```
 
 #### b) Purpose 2: getting the records that made improper alignment (F)
