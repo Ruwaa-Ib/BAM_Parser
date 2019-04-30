@@ -55,6 +55,7 @@ Insert some description here!
 ```bash
 mkdir parsed
 bam_file="$sample.bam"
+output="$(basename -- $bam_file)"
 ```
 
 #### a) Purpose 1: getting the records with intronic sequences (CIGAR)
@@ -65,12 +66,12 @@ samtools view -h -F 4 $bam_file | awk '$6 ~ /N/ || $1 ~ /@/' | samtools view -b 
 
 #### b) Purpose 2: getting the records that made improper alignment (F)
 ```bash
-samtools view -h -F 2 $bam_file > parsed/improper.$output
+samtools view -h -F 2 $bam_file > parsed/improper_$output
 ```
 
 #### c) Purpose 3: getting the records with supplementary alignment (F)
 ```bash
-samtools view -h -f 2048 $bam_file > parsed/supp.$output
+samtools view -h -f 2048 $bam_file > parsed/supp_$output
 ```
 
 #### d) Purpose 4: getting the records with multiple mismatch (CIGAR)
