@@ -38,7 +38,7 @@ fastq-dump -I --split-files $sample
 hisat2 -q --phred33 \
 	-x $index \
 	-1 $sample_1.fastq \
-	-2 $sample_2.fastq 
+	-2 $sample_2.fastq \
 	-S $sample.sam \
 	--met-file map.met \
 	> map.log
