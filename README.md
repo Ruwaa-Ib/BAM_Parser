@@ -54,6 +54,7 @@ samtools view -hbo $sample.bam map/$sample.sam
 Insert some description here!
 ```bash
 mkdir parsed
+bam_file="$sample.bam"
 ```
 
 #### a) Purpose 1: getting the records with intronic sequences (CIGAR)
