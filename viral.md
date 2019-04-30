@@ -44,5 +44,5 @@ samtools flagstat map/$sample.sam
 
 ### 4. Converting SAM to BAM
 ```bash
-samtools view -hbo map/$sample.bam $sample.sam
+samtools view -hbo map/$sample.bam map/$sample.sam
 ```
