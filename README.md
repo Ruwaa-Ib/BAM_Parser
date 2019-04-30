@@ -1,6 +1,8 @@
 # BAM Parser Bash Project
 
 This tools is part of the Bioinformatics course project (ZC-BMS320)
+Project Description >>  BAM parsing for assembly QC
+>Parse BAM files to find the reads with multiple mismatches, supplementary alignment, and/or discordant reads. Try to find out if these reads aggregate in specific loci along the genome which might mark regions of bad assembly.
 
 The Pipeline goes as follow:
 
