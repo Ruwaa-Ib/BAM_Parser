@@ -38,4 +38,11 @@ hisat2 -q --phred33 \
 	-S map/$sample.sam \
 	--met-file map/map.met \
 	> map/map.log
+
+samtools flagstat map/$sample.sam
+```
+
+### 4. Converting SAM to BAM
+```bash
+samtools view -hbo map/$sample.bam $sample.sam
 ```
