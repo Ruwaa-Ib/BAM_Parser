@@ -35,18 +35,19 @@ fastq-dump -I --split-files $sample
 
 ### 3. Mapping the sample to the indexed reference human genome
 ```bash
+mkdir map
 hisat2 -q --phred33 \
 	-x $index \
-	-1 $sample_1.fastq \
-	-2 $sample_2.fastq \
-	-S $sample.sam \
-	--met-file map.met \
-	> map.log
+	-1 ${sample}_1.fastq \
+	-2 ${sample}_2.fastq \
+	-S map/$sample.sam \
+	--met-file map/map.met \
+	> map/map.log
 ```
 
 ### 4. Converting SAM to BAM
 ```bash
-samtools view -hbo $sample.bam $sample.sam 
+samtools view -hbo $sample.bam map/$sample.sam 
 ```
 
 ### 5. Extracting Records from the BAM file for Different Purposes
