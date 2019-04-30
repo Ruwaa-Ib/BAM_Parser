@@ -46,3 +46,21 @@ samtools flagstat map/$sample.sam
 ```bash
 samtools view -hbo map/$sample.bam map/$sample.sam
 ```
+
+### 5. Analysis of Sub-optimal Alignments
+Sub-optimal alignments analyzed here are >> improper pair (discordent) alignments, supplemetary alignments, and multiple mismatches in alignments.
+
+#### a) Improper Pair (Discordent) Alignments
+```bash
+
+```
+
+#### b) Supplemetary Alignments
+```bash
+
+```
+
+#### c) Multiple Mismatches in Alignments.
+```bash
+
+```
