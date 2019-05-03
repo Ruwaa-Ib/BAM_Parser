@@ -51,8 +51,13 @@ hisat2 -q --phred33 \
 samtools view -hbo $sample.bam map/$sample.sam 
 ```
 
-### 5. Extracting Records from the BAM file for Different Purposes
-Insert some description here!
+### 5. Extracting Records from the BAM file for two Different Purposes
+All the above steps were done for to create the BAM files where the real project comes in. 
+The first purpose is to select the reads with intronic sequences, split them over the introns, merge them with all other mapped reads. 
+The second purpose was to use the mapped reads to assess the quality control of the reference assembly (or the sample of interest) based on three different criteria: proper alignments of paired end reads, chimeric (supplementary) alignments, and the accumulation of multiple mismatches at specific loci of the refernce genome.
+
+The following code was done for enviroenment prep. but each subtask later was done by a different individual as mentioned.
+
 ```bash
 mkdir parsed
 bam_file="$sample.bam"
@@ -91,6 +96,7 @@ samtools view parsed/splitted_RU.bam | wc -l
 When using the SplitNCigarReads tools of GATK >> when viewd, some records still contan introns 'N' in the CIGAR string! A new python/bash script is needed for the splitting.
 
 When using my Python script >> 
+
 
 #### b) Purpose 2: getting the records that made improper alignment (F)  >> Amira
 ```bash
