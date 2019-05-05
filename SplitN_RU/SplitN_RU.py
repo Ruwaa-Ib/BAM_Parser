@@ -71,7 +71,7 @@ def main():
             record.seq = seq[contig_start:contig_start+contig_len]
             record.qual = qual[contig_start:contig_start+contig_len]
             record.pos = ref_pos
-            if contig_start != 0:
+            if contig_start != 0 and record.flag < 2048:
                 record.flag += 2048
             #record.cigarstring = contig
             record.tags = []
